@@ -1,0 +1,43 @@
+{% extends 'assignment4app/home.html' %}
+{% block content %}
+
+
+<div class="d-flex flex-column align-items-center">
+
+    <div class="w-100 d-flex justify-content-start" style="max-width: 800px;">
+        <a href="{% url 'student_list' %}" class="btn btn-secondary mb-2">Back</a>
+    </div>
+
+    <div class="card shadow-sm w-100" style="max-width: 800px;">
+        <div class="card-header text-center bg-light">
+            <h4 class="mb-0 fw-bold">Create Student</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_name" class="form-label">Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_gender" class="form-label">Gender</label>
+                    {{ form.gender }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_phone" class="form-label">Phone</label>
+                    {{ form.phone }}
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
